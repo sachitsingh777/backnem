@@ -1,13 +1,13 @@
 const express=require("express")
 const app=express()
-
+const cors=require(cors)
 const {connection} =require("./db");
 const { auth } = require("./middleware/authentication");
 const { postRouter } = require("./routes/Post.router");
 const { userRouter } = require("./routes/user.routes");
 require('dotenv').config()
 app.use(express.json());
-
+app.use(cors())
 app.get("/",(req,res)=>{
     res.send(" home Page")
 })
